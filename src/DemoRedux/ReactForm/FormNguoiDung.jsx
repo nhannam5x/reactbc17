@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
 
-export default class FormNguoiDung extends Component {
+class FormNguoiDung extends Component {
   state = {
     values: {
       taiKhoan: "",
@@ -45,6 +46,13 @@ export default class FormNguoiDung extends Component {
       alert("Dữ liệu nhập không hợp lệ");
       return;
     }
+    //Nếu hợp lệ gửi dữ liệu đi => lên redux
+    const action= {
+      type: 'THEM_NGUOI_DUNG',
+      nguoiDung: this.state.values
+    }
+    //Đưa dữ liệu lên redux
+    this.props.dispatch(action);
   };
 
   handleChangeInput = (e) => {
@@ -82,6 +90,7 @@ export default class FormNguoiDung extends Component {
   };
 
   render() {
+    let {taikhoan,hoTen,matKhau,email,soDienThoai,loaiNguoiDung} = this.props.nguoiDungSua;
     return (
       <form onSubmit={this.handleSubmit}>
         <div className="card">
@@ -98,6 +107,7 @@ export default class FormNguoiDung extends Component {
                     id="taiKhoan"
                     name="taiKhoan"
                     onChange={this.handleChangeInput}
+                    value = {taikhoan}
                   />
                   <p className="text-danger">{this.state.errors.taiKhoan}</p>
                 </div>
@@ -109,6 +119,7 @@ export default class FormNguoiDung extends Component {
                     id="matKhau"
                     name="matKhau"
                     onChange={this.handleChangeInput}
+                    value = {matKhau}
                   />
                   <p className="text-danger">{this.state.errors.matKhau}</p>
                 </div>
@@ -121,6 +132,7 @@ export default class FormNguoiDung extends Component {
                     id="email"
                     name="email"
                     onChange={this.handleChangeInput}
+                    value = {email}
                   />
                   <p className="text-danger">{this.state.errors.email}</p>
                 </div>
@@ -134,6 +146,7 @@ export default class FormNguoiDung extends Component {
                     id="hoTen"
                     name="hoTen"
                     onChange={this.handleChangeInput}
+                    value = {hoTen}
                   />
                   <p className="text-danger">{this.state.errors.hoTen}</p>
                 </div>
@@ -145,6 +158,7 @@ export default class FormNguoiDung extends Component {
                     id="soDienThoai"
                     name="soDienThoai"
                     onChange={this.handleChangeInput}
+                    value = {soDienThoai}
                   />
                   <p className="text-danger">{this.state.errors.soDienThoai}</p>
                 </div>
@@ -152,6 +166,7 @@ export default class FormNguoiDung extends Component {
                 <div className="form-group">
                   <p>Loại người dùng</p>
                   <select
+                    value = {loaiNguoiDung}
                     className="form-control"
                     id="maLoaiNguoiDung"
                     name="maLoaiNguoiDung"
@@ -176,3 +191,11 @@ export default class FormNguoiDung extends Component {
     );
   }
 }
+
+
+const mapStateToProps = (rootReducer) => {
+  return{
+    nguoiDungSua: rootReducer.quanLyNguoiDungReducer.nguoiDungSua
+  }
+}
+export default connect(mapStateToProps)(FormNguoiDung);

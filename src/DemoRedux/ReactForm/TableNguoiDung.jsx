@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import {connect} from 'react-redux';
 
-export default class TableNguoiDung extends Component {
+class TableNguoiDung extends Component {
   render() {
     return (
-      <table>
+      <table className="table" width={100}>
         <thead className="bg-dark text-white font-weight-bold">
           <th>Tài khoản</th>
           <th>Mật Khẩu</th>
@@ -14,20 +15,57 @@ export default class TableNguoiDung extends Component {
           <th></th>
         </thead>
         <tbody>
-          <tr>
-            <td>Tài khoản</td>
-            <td>Mật Khẩu</td>
-            <td>Họ tên</td>
-            <td>Email</td>
-            <td>Số điện thoại</td>
-            <td>Loại người dùng</td>
+          {this.props.mangNguoiDung.map((nguoiDung,index)=>(
+             <tr key={index}>
+            <td>{nguoiDung.taikhoan}</td>
+            <td>{nguoiDung.matKhau}</td>
+            <td>{nguoiDung.hoTen}</td>
+            <td>{nguoiDung.email}</td>
+            <td>{nguoiDung.soDienThoai}</td>
+            <td>{nguoiDung.loaiNguoiDung}</td>
             <td>
-                <button className="btn btn-danger">Xóa</button>
-                <button className="btn btn-info">Sửa</button>
+                <button className="btn btn-danger" onClick={()=>{
+                  const action = {
+                    type:'XOA_NGUOI_DUNG',
+                    taikhoan: nguoiDung.taikhoan
+                  };
+                  this.props.dispatch(action);
+                }}>Xóa</button>
+                <button className="btn btn-info" onClick={() =>{
+                  const action = {
+                    type:'SUA_NGUOI_DUNG',
+                    nguoiDung:nguoiDung
+                  }
+                  //Sau khi bấm nút sửa tạo ra action và đưa lên redux để thay đổi giá trị state.nguoiDungSua
+                  this.props.dispatch(action);
+                }
+                }>Sửa</button>
             </td>
           </tr>
+          ))}
         </tbody>
       </table>
     );
   }
 }
+
+//return { + return = (;
+const mapStateToProps = (rootReducer) => ({
+  
+    mangNguoiDung: rootReducer.quanLyNguoiDungReducer.mangNguoiDung
+
+})
+
+// const mapDispatchToProps = (dispatch) => ({
+//   xoaNguoiDung: (taiKhoanXoa) =>{
+   
+//       const action = {
+//         type: 'XOA_NGUOI_DUNG',
+//         taiKhoanXoa
+//       }
+//     dispatch(action);
+//     }
+//   }
+// )
+
+export default connect(mapStateToProps)(TableNguoiDung);

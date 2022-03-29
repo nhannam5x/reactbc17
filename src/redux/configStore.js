@@ -1,6 +1,7 @@
 import {combineReducers,createStore} from 'redux';
 import { gameXucXacReducer } from './reducers/gameXucXacReducer';
 import { gioHangReducer } from './reducers/gioHangReducers'
+import { quanLyNguoiDungReducer } from './reducers/quanLyNguoiDungReducer'
 
 let stateGioHangDefault = [{maSP:1, tenSP:'iphone',giaBan:1000,soLuong:1,hinhAnh:'https://i.pravatar.cc?u=1'}]
 
@@ -9,7 +10,7 @@ const rootReducer = combineReducers({
     //Nơi chứa các state của ứng dụng
     gameXucXacReducer: gameXucXacReducer,
     gioHangReducer,
-    numberReducer: (state = 1) => state
+    quanLyNguoiDungReducer: quanLyNguoiDungReducer
 })
 
 
