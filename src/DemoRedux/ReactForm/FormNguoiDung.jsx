@@ -9,7 +9,7 @@ class FormNguoiDung extends Component {
       hoTen: "",
       email: "",
       soDienThoai: "",
-      maLoaiNguoiDung: "Nguoi Dung",
+      maLoaiNguoiDung: "NguoiDung",
     },
     errors: {
       taiKhoan: "",
@@ -88,9 +88,25 @@ class FormNguoiDung extends Component {
       }
     );
   };
+  //Can thiệp vào lifecycle khi props hoặc state  thay đổi thành hàm này sẽ thực thi trước khi render
+  // static getDerivedStateFromProps(newProps, state){
+  //   //Chỉ khi nào ng dùng bấm nút sửa thì mới xử lý này
+  //   if(state.values.taiKhoan !== newProps.nguoiDungSua.taiKhoan){
+  //   console.log('newProps',newProps);
+  //   console.log('state',state);
+  //   //Lấy dữ liệu rừ newprops gán vào state => sau khi render dữ liệu binding từ state
+  //   state.values = {...newProps.nguoiDungSua};
+  // }
+  //   return state;
+  // }
+
+  //Chỉ chạy khi props thay đổi 
+  componentWillReceiveProps(newProps){
+    this.setState({values:newProps.nguoiDungSua})
+  }
 
   render() {
-    let {taikhoan,hoTen,matKhau,email,soDienThoai,loaiNguoiDung} = this.props.nguoiDungSua;
+    let {taiKhoan,hoTen,matKhau,email,soDienThoai,maLoaiNguoiDung} = this.state.values;
     return (
       <form onSubmit={this.handleSubmit}>
         <div className="card">
@@ -107,7 +123,7 @@ class FormNguoiDung extends Component {
                     id="taiKhoan"
                     name="taiKhoan"
                     onChange={this.handleChangeInput}
-                    value = {taikhoan}
+                    value = {taiKhoan}
                   />
                   <p className="text-danger">{this.state.errors.taiKhoan}</p>
                 </div>
@@ -166,10 +182,11 @@ class FormNguoiDung extends Component {
                 <div className="form-group">
                   <p>Loại người dùng</p>
                   <select
-                    value = {loaiNguoiDung}
+                    value={maLoaiNguoiDung}
                     className="form-control"
                     id="maLoaiNguoiDung"
                     name="maLoaiNguoiDung"
+                    onChange={this.handleChangeInput}
                   >
                     <option>Quan Tri</option>
                     <option>Nguoi Dung</option>
@@ -182,7 +199,17 @@ class FormNguoiDung extends Component {
             <button type="submit" className="btn btn-success">
               Đăng ký
             </button>
-            <button type="submit" className="btn btn-info ml-2">
+            <button type='button' className="btn btn-info ml-2" onClick={()=>{
+              //Gửi dữ liệu về redux thay đổi mảng người dùng
+              const action = {
+                type: "CAP_NHAT_THONG_TIN",
+                nguoiDung: this.state.values
+              }
+              //Đưa dữ liệu lên redux
+              this.props.dispatch(action)
+            }}
+            >
+              
               Cập nhật
             </button>
           </div>

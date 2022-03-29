@@ -17,17 +17,17 @@ class TableNguoiDung extends Component {
         <tbody>
           {this.props.mangNguoiDung.map((nguoiDung,index)=>(
              <tr key={index}>
-            <td>{nguoiDung.taikhoan}</td>
+            <td>{nguoiDung.taiKhoan}</td>
             <td>{nguoiDung.matKhau}</td>
             <td>{nguoiDung.hoTen}</td>
             <td>{nguoiDung.email}</td>
             <td>{nguoiDung.soDienThoai}</td>
-            <td>{nguoiDung.loaiNguoiDung}</td>
+            <td>{nguoiDung.maLoaiNguoiDung}</td>
             <td>
                 <button className="btn btn-danger" onClick={()=>{
                   const action = {
                     type:'XOA_NGUOI_DUNG',
-                    taikhoan: nguoiDung.taikhoan
+                    taiKhoan: nguoiDung.taiKhoan
                   };
                   this.props.dispatch(action);
                 }}>Xóa</button>

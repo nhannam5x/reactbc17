@@ -39,8 +39,8 @@ function App() {
       {/* <BaiTapXemChiTietSP /> */}
       {/* <BaiTapGioHangRedux /> */}
       {/* <GameXucXac /> */}
-      {/* <BaiTapQuanLyNguoiDung /> */}
-      <ReactLifeCycle />
+      <BaiTapQuanLyNguoiDung />
+      {/* <ReactLifeCycle /> */}
     </div>
   );
 }
