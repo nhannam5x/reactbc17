@@ -20,9 +20,9 @@ export default class HandleEvent extends Component {
         <button onClick={() =>{alert('Xin chào các bạn');}}>Click me!</button>
         <hr />
         <h3>Handle event Param</h3>
-        <button onClick={this.showMess.bind(this,'Dũng')}>Show Mess</button>
+        <button onClick={this.showMess.bind(this,' Dũng')}>Show Mess</button>
         <button onClick={() => {
-            this.showMess('Nhân đẹp ngầu');
+            this.showMess(' Nhân đẹp ngầu');
         }}>Show mess param</button>
       </div>
     )
