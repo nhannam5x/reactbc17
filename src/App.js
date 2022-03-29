@@ -17,31 +17,22 @@ import BaiTapGioHangRedux from './DemoRedux/BaiTapGioHangRedux/BaiTapGioHangRedu
 import GameXucXac from './DemoRedux/GameXucXac/GameXucXac';
 import BaiTapQuanLyNguoiDung from './DemoRedux/ReactForm/BaiTapQuanLyNguoiDung';
 import ReactLifeCycle from './ReactLifeCycle/ReactLifeCycle';
+import Register from './pages/Register/Register';
+import Login from './pages/Login/Login';
+import Contact from './pages/Contact/Contact';
+import About from './pages/About/About';
+import Home from './pages/Home/Home';
 
 function App() {
   return (
-    <div className="App">
-      {/* <HandleEvent/> */}
-      {/* <Databinding /> */}
-      {/* <HomeComponent/> */}
-      {/* hello cybersoft
-      <HeaderClass />
-      <HeaderClass />
-      <HeaderClass />
-      <HeaderFunc /> */}
-      {/* <Rendering_Conditions /> */}
-      {/* <Ex1StateDemo /> */}
-      {/* <RenderWithMap/> */}
-      {/* <QuanLyDanhSachPhim /> */}
-      {/* <DemoProps/> */}
-      {/* <ShoesShop/> */}
-      {/* <PhoneShop/> */}
-      {/* <BaiTapXemChiTietSP /> */}
-      {/* <BaiTapGioHangRedux /> */}
-      {/* <GameXucXac /> */}
-      <BaiTapQuanLyNguoiDung />
-      {/* <ReactLifeCycle /> */}
-    </div>
+   <BrowserRouter>
+    <Route path='/home' component={Home}/>
+    <Route path='/about' component={About}/>
+    <Route path='/contact' component={Contact}/>
+    <Route path='/login' component={Login}/>
+    <Route path='/register' component={Register}/>
+   
+   </BrowserRouter>
   );
 }
 
