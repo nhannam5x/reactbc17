@@ -26,6 +26,7 @@ import Home from "./pages/Home/Home";
 import HeaderHome from "./components/HeaderHome/HeaderHome";
 import Profile from "./pages/Profile/Profile";
 import Detail from "./pages/Detail/Detail";
+import ToDoApp from "./pages/DemoAxios/ToDoApp/ToDoApp";
 
 function App() {
   return (
@@ -69,7 +70,8 @@ function App() {
         </div>
     
     }}/>
-      <Route exact path={"/"} component={Home} render={(propsRoute)=>{/*propRoute là props của thẻ Route bao gồm: history,match,location */ 
+    <Route exact path={"/todoapp"} component={ToDoApp} />
+      <Route exact path={"/"} render={(propsRoute)=>{/*propRoute là props của thẻ Route bao gồm: history,match,location */ 
         return <div>
           <HeaderHome />
           <Home {...propsRoute}/>
