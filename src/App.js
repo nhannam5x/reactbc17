@@ -25,19 +25,57 @@ import About from "./pages/About/About";
 import Home from "./pages/Home/Home";
 import HeaderHome from "./components/HeaderHome/HeaderHome";
 import Profile from "./pages/Profile/Profile";
+import Detail from "./pages/Detail/Detail";
 
 function App() {
   return (
     <BrowserRouter>
-    <HeaderHome />
+
     <Switch>
-      <Route exact path={"/home"} component={Home} />
-      <Route exact path={"/about"} component={About} />
-      <Route exact path={"/contact"} component={Contact} />
+      <Route exact path={"/home"} render={(propsRoute)=>{/*propRoute là props của thẻ Route bao gồm: history,match,location */ 
+        return <div>
+          <HeaderHome />
+          <Home {...propsRoute}/>
+        </div>
+    
+    }}/>
+      <Route exact path={"/about"} render={(propsRoute)=>{
+        return <div>
+          <HeaderHome />
+          <About {...propsRoute}/>
+        </div>
+    
+    }}/>
+      <Route exact path={"/contact"} render={(propsRoute)=>{
+        return <div>
+          <HeaderHome />
+          <Contact {...propsRoute}/>
+        </div>
+    
+    }} />
       <Route exact path={"/login"} component={Login} />
       <Route exact path={"/register"} component={Register} />
-      <Route exact path={'/profile'} component={Profile}/>
-      <Route exact path={"/"} component={Home} />
+      <Route exact path={'/profile'} render={(propsRoute)=>{
+        return <div>
+          <HeaderHome />
+          <Profile {...propsRoute}/>
+        </div>
+    
+    }}/>
+      <Route exact path={'/detail/:id'} render={(propsRoute)=>{
+        return <div>
+          <HeaderHome />
+          <Detail {...propsRoute}/>
+        </div>
+    
+    }}/>
+      <Route exact path={"/"} component={Home} render={(propsRoute)=>{/*propRoute là props của thẻ Route bao gồm: history,match,location */ 
+        return <div>
+          <HeaderHome />
+          <Home {...propsRoute}/>
+        </div>
+    
+    }}/>
     </Switch>
     </BrowserRouter>
   );

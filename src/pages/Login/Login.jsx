@@ -14,9 +14,10 @@ export default class Login extends Component {
     handleSubmit = (e)=>{
         if(this.state.taiKhoan === 'cybersoft' && this.state.matKhau === 'cybersoft'){
             //Chuyển hướng trang this.props.history.push('/pathname')
-            // this.props.history.push('/profile');
+            this.props.history.push('/profile');
             //Thay đổi đường dẫn hiện tại = đường dẫn truyền vào
-            this.props.history.replace('/profile');
+            // this.props.history.replace('/profile');
+            localStorage.setItem('USER_LOGIN', this.state.taiKhoan);
         }else{
             alert('Bạn cần đăng ký tài khoản để đăng nhập');
             this.props.history.push('/register');
