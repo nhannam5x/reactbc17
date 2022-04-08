@@ -1,4 +1,5 @@
 import {combineReducers,createStore} from 'redux';
+import { fakeBookAppReducer } from './reducers/fakeBookAppReducer';
 import { gameXucXacReducer } from './reducers/gameXucXacReducer';
 import { gioHangReducer } from './reducers/gioHangReducers'
 import { quanLyNguoiDungReducer } from './reducers/quanLyNguoiDungReducer'
@@ -10,7 +11,8 @@ const rootReducer = combineReducers({
     //Nơi chứa các state của ứng dụng
     gameXucXacReducer: gameXucXacReducer,
     gioHangReducer,
-    quanLyNguoiDungReducer: quanLyNguoiDungReducer
+    quanLyNguoiDungReducer: quanLyNguoiDungReducer,
+    fakeBookAppReducer: fakeBookAppReducer
 })
 
 

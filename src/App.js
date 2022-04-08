@@ -27,11 +27,17 @@ import HeaderHome from "./components/HeaderHome/HeaderHome";
 import Profile from "./pages/Profile/Profile";
 import Detail from "./pages/Detail/Detail";
 import ToDoApp from "./pages/DemoAxios/ToDoApp/ToDoApp";
+import UseStateDemo from "./pages/Hooks/UseStateDemo/UseStateDemo";
+import UseEffectDemo from "./pages/Hooks/UseEffect/UseEffectDemo";
+import UseCallBackDemo from "./pages/Hooks/UseCallBack/UseCallBackDemo";
+import UseMemoDemo from "./pages/Hooks/UseMemo/UseMemoDemo";
+import UseRef from "./pages/Hooks/UseRef/UseRef";
+import ReduxHook from "./pages/Hooks/ReduxHook/ReduxHook";
 
 function App() {
   return (
     <BrowserRouter>
-
+  <HeaderHome />
     <Switch>
       <Route exact path={"/home"} render={(propsRoute)=>{/*propRoute là props của thẻ Route bao gồm: history,match,location */ 
         return <div>
@@ -70,7 +76,15 @@ function App() {
         </div>
     
     }}/>
+    
     <Route exact path={"/todoapp"} component={ToDoApp} />
+    <Route exact path={"/usestate"} component={UseStateDemo} />
+    <Route exact path={"/useeffect"} component={UseEffectDemo} />
+    <Route exact path={"/usecallback"} component={UseCallBackDemo} />
+    <Route exact path={"/usememo"} component={UseMemoDemo} />
+    <Route exact path={"/useref"} component={UseRef} />
+    <Route exact path={"/reduxhook"} component={ReduxHook} />
+
       <Route exact path={"/"} render={(propsRoute)=>{/*propRoute là props của thẻ Route bao gồm: history,match,location */ 
         return <div>
           <HeaderHome />

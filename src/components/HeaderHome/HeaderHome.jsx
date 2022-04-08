@@ -44,6 +44,23 @@ export default function HeaderHome() {
               Register
             </NavLink>
           </li>
+          <li className="nav-item">
+            <NavLink exact activeClassName="bg-white text-dark" className="nav-link" to={"/todoapp"}>
+              Todoapp
+            </NavLink>
+          </li>
+          <li className="nav-item dropdown">
+            <a href="#" className="nav-link dropdown-toggle" id="dropdownId" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded='false'>Hooks</a>
+            <div className="dropdown-menu" aria-labelledby="dropdownId">
+              <NavLink className="dropdown-item" to="/usestate">Use state</NavLink>
+              <NavLink className="dropdown-item" to="/useeffect">Use effect</NavLink>
+              <NavLink className="dropdown-item" to="/usecallback">Use callback</NavLink>
+              <NavLink className="dropdown-item" to="/usememo">Use memo</NavLink>
+              <NavLink className="dropdown-item" to="/useref">Use ref</NavLink>
+              <NavLink className="dropdown-item" to="/reduxhook">Use ref</NavLink>
+            </div>
+          </li>
         </ul>
         <form className="form-inline my-2 my-lg-0">
           <input
