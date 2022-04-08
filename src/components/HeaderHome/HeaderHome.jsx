@@ -6,7 +6,7 @@ export default function HeaderHome() {
     //b4-navbar-background
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
       <NavLink className="navbar-brand" to={"/"}>
-        CyberSoft
+        ReactJS
       </NavLink>
       <button
         className="navbar-toggler d-lg-none"
@@ -34,16 +34,7 @@ export default function HeaderHome() {
               Contact
             </NavLink>
           </li>
-          <li className="nav-item">
-            <NavLink exact activeClassName="bg-white text-dark" className="nav-link" to={"/login"}>
-              Login
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink exact activeClassName="bg-white text-dark" className="nav-link" to={"/register"}>
-              Register
-            </NavLink>
-          </li>
+          
         </ul>
         <form className="form-inline my-2 my-lg-0">
           <input
