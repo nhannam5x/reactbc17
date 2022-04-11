@@ -1,15 +1,14 @@
 import React, { useContext, useReducer } from "react";
-import { storeContext } from "./ContextProvider"
+import { cartReducer } from "./cartReducer";
 
+let initialCart = [];
 let arrProduct = [
-    { id: 1, name: "Logitech G903", price: 500 },
-    { id: 2, name: "Logitech G103", price: 200 },
-    { id: 3, name: "Logitech G603", price: 700 },
-  ];
+  { id: 1, name: "Logitech G903", price: 500 },
+  { id: 2, name: "Logitech G103", price: 200 },
+  { id: 3, name: "Logitech G603", price: 700 },
+];
 export default function HookUseReducer() {
-  const {cartReducer} = useContext(storeContext);
-  let [cart,dispatch] = cartReducer
-  
+  const [cart, dispatch] = useReducer(cartReducer, initialCart);
   return (
     <div className="container">
       <h3 className="display-4 text-center">Product List</h3>
@@ -18,16 +17,24 @@ export default function HookUseReducer() {
           return (
             <div className="col-4" key={index}>
               <div className="card text-left">
-                <img className="card-img-top" src="http://picsum.photos/100/50"/>
+                <img
+                  className="card-img-top"
+                  src="http://picsum.photos/100/50"
+                  alt={index}
+                />
                 <div className="card-body">
                   <h4 className="card-title">{item.name}</h4>
                   <p className="card-text">{item.price}</p>
-                  <button onClick={() => {
+                  <button
+                    onClick={() => {
                       dispatch({
                         type: "addToCart",
                         product: item,
                       });
-                    }}> Add to cart </button>
+                    }}
+                  >
+                    Add to cart
+                  </button>
                 </div>
               </div>
             </div>

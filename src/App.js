@@ -39,77 +39,12 @@ import HookRef from "./hooksTest/HookRef";
 import HookUseReducer from "./hooksTest/HookUseReducer";
 
 function App() {
-  function myName(){
-    
-  }
+
   return (
 
-  //   <BrowserRouter>
-  // <HeaderHome />
-  //   <Switch>
-  //     <Route exact path={"/home"} render={(propsRoute)=>{/*propRoute là props của thẻ Route bao gồm: history,match,location */ 
-  //       return <div>
-  //         <HeaderHome />
-  //         <Home {...propsRoute}/>
-  //       </div>
-    
-  //   }}/>
-  //     <Route exact path={"/about"} render={(propsRoute)=>{
-  //       return <div>
-  //         <HeaderHome />
-  //         <About {...propsRoute}/>
-  //       </div>
-    
-  //   }}/>
-  //     <Route exact path={"/contact"} render={(propsRoute)=>{
-  //       return <div>
-  //         <HeaderHome />
-  //         <Contact {...propsRoute}/>
-  //       </div>
-    
-  //   }} />
-  //     <Route exact path={"/login"} component={Login} />
-  //     <Route exact path={"/register"} component={Register} />
-  //     <Route exact path={'/profile'} render={(propsRoute)=>{
-  //       return <div>
-  //         <HeaderHome />
-  //         <Profile {...propsRoute}/>
-  //       </div>
-    
-  //   }}/>
-  //     <Route exact path={'/detail/:id'} render={(propsRoute)=>{
-  //       return <div>
-  //         <HeaderHome />
-  //         <Detail {...propsRoute}/>
-  //       </div>
-    
-  //   }}/>
-    
-  //   <Route exact path={"/todoapp"} component={ToDoApp} />
-  //   <Route exact path={"/usestate"} component={UseStateDemo} />
-  //   <Route exact path={"/useeffect"} component={UseEffectDemo} />
-  //   <Route exact path={"/usecallback"} component={UseCallBackDemo} />
-  //   <Route exact path={"/usememo"} component={UseMemoDemo} />
-  //   <Route exact path={"/useref"} component={UseRef} />
-  //   <Route exact path={"/reduxhook"} component={ReduxHook} />
-
-  //     <Route exact path={"/"} render={(propsRoute)=>{/*propRoute là props của thẻ Route bao gồm: history,match,location */ 
-  //       return <div>
-  //         <HeaderHome />
-  //         <Home {...propsRoute}/>
-  //       </div>
-    
-  //   }}/>
-  //   </Switch>
-  //   </BrowserRouter>
-  // <HookUseState />
-
-  // <HookUseEffect />
-  // <HookRef />
-  // <HookUseReducer />
-  <ContextProvider>
+  
   <HookUseReducer />
-</ContextProvider>
+
   );
 }
 
