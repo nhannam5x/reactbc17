@@ -34,11 +34,6 @@ export default function HeaderHome() {
               Contact
             </NavLink>
           </li>
-          <li className="nav-item">
-            <NavLink exact to={"/detail"} className="nav-link" activeClassName="bg-white text-dark" activeStyle={{textDecoration: 'underline'}}>
-              About
-            </NavLink>
-          </li>
           
         </ul>
         <form className="form-inline my-2 my-lg-0">
