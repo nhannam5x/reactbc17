@@ -6,7 +6,7 @@ export default class Contact extends Component {
 
 
   handleGoHome = () => {
-    this.props.history.push('/home');
+    this.props.history.replace('/home');
   }
 
 
@@ -19,9 +19,9 @@ export default class Contact extends Component {
       <div className='container'>
         <h3>Contact</h3>
         <button className='btn btn-success' onClick={this.handleGoHome}>Đăng nhập</button>
-        <Prompt 
+        {/* <Prompt 
         when = {this.state.toGo}
-        message = {location => 'Bạn có muốn rời khỏi đây?'}/>
+        message = {location => 'Bạn có muốn rời khỏi đây?'}/> */}
       </div>
     )
   }

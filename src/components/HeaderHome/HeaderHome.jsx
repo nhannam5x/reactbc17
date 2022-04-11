@@ -20,18 +20,23 @@ export default function HeaderHome() {
       <div className="collapse navbar-collapse" id="collapsibleNavId">
         <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
         <li className="nav-item">
-            <NavLink exact activeStyle={{textDecoration:'underline'}} activeClassName="bg-white text-dark" className="nav-link" to={"/home"}>
+            <NavLink exact to={"/home"} className="nav-link" activeClassName="bg-white text-dark" activeStyle={{textDecoration: 'underline'}}>
               Home
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink exact activeStyle={{textDecoration:'underline'}} activeClassName="bg-white text-dark" className="nav-link" to={"/about"}>
+            <NavLink exact to={"/about"} className="nav-link" activeClassName="bg-white text-dark" activeStyle={{textDecoration: 'underline'}} >
               About
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link" to={"/contact"} exact activeClassName="bg-white text-dark">
+            <NavLink exact to={"/contact"} className="nav-link" activeClassName="bg-white text-dark" activeStyle={{textDecoration: 'underline'}}>
               Contact
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink exact to={"/detail"} className="nav-link" activeClassName="bg-white text-dark" activeStyle={{textDecoration: 'underline'}}>
+              About
             </NavLink>
           </li>
           
