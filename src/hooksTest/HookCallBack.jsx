@@ -1,13 +1,7 @@
 import React, { useState, memo } from "react";
 
-export default function HookUseMemo() {
+export default function HookUseCallback() {
   let { like, setLike } = useState(1);
-
-  let renderNotify = () =>{
-    return `Bạn đã thả ${like} ♥ !`
-  }
-  
-  const callBackRenderNotify = userCallBack(renderNotify,[like])
 
   return (
     <div className="m-5">
@@ -19,7 +13,7 @@ export default function HookUseMemo() {
           setLike(like + 1);
         }}> ♥ </span>
       <br />
-      <Comment renderNotify={callBackRenderNotify} />
+      <Comment like={like} />
     </div>
   );
 }
