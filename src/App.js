@@ -33,6 +33,7 @@ import UseCallBackDemo from "./pages/Hooks/UseCallBack/UseCallBackDemo";
 import UseMemoDemo from "./pages/Hooks/UseMemo/UseMemoDemo";
 import UseRef from "./pages/Hooks/UseRef/UseRef";
 import ReduxHook from "./pages/Hooks/ReduxHook/ReduxHook";
+import ToDoListHook from "./pages/Hooks/ToDoListHook/ToDoListHook";
 
 function App() {
   return (
@@ -84,6 +85,7 @@ function App() {
     <Route exact path={"/usememo"} component={UseMemoDemo} />
     <Route exact path={"/useref"} component={UseRef} />
     <Route exact path={"/reduxhook"} component={ReduxHook} />
+    <ToDoListHook/>
 
       <Route exact path={"/"} render={(propsRoute)=>{/*propRoute là props của thẻ Route bao gồm: history,match,location */ 
         return <div>
