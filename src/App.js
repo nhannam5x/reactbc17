@@ -34,26 +34,18 @@ import UseMemoDemo from "./pages/Hooks/UseMemo/UseMemoDemo";
 import UseRef from "./pages/Hooks/UseRef/UseRef";
 import ReduxHook from "./pages/Hooks/ReduxHook/ReduxHook";
 import ToDoListHook from "./pages/Hooks/ToDoListHook/ToDoListHook";
+import DemoHOC from "./pages/HOC/DemoHOC/DemoHOC";
+import ModalHOC from "./pages/HOC/DemoHOC/ModalHOC";
+import HomeTemplate from "./templates/HomeTemplate/HomeTemplate";
 
 function App() {
   return (
     <BrowserRouter>
   <HeaderHome />
+  <ModalHOC />
     <Switch>
-      <Route exact path={"/home"} render={(propsRoute)=>{/*propRoute là props của thẻ Route bao gồm: history,match,location */ 
-        return <div>
-          <HeaderHome />
-          <Home {...propsRoute}/>
-        </div>
-    
-    }}/>
-      <Route exact path={"/about"} render={(propsRoute)=>{
-        return <div>
-          <HeaderHome />
-          <About {...propsRoute}/>
-        </div>
-    
-    }}/>
+    <HomeTemplate path="/home" component={Home}/>
+    <HomeTemplate path="/about" component={About}/>
       <Route exact path={"/contact"} render={(propsRoute)=>{
         return <div>
           <HeaderHome />
@@ -85,6 +77,7 @@ function App() {
     <Route exact path={"/usememo"} component={UseMemoDemo} />
     <Route exact path={"/useref"} component={UseRef} />
     <Route exact path={"/reduxhook"} component={ReduxHook} />
+    <Route exact path={"/demohoc"} component={DemoHOC} />
     <ToDoListHook/>
 
       <Route exact path={"/"} render={(propsRoute)=>{/*propRoute là props của thẻ Route bao gồm: history,match,location */ 
