@@ -4,7 +4,7 @@ import Login from "../../Login/Login";
 import Register from "../../Register/Register";
 import ModalHOC from "./ModalHOC";
 
-export default function DemoHOC() {
+export default function DemoHOC(props) {
     const dispatch = useDispatch();
     const [ComponentContent,setComponentContent] = useState(<div>Default Conent</div>)
   return (
@@ -43,10 +43,10 @@ export default function DemoHOC() {
         Đăng nhập
       </button>
 
-      <ModalHOC
+      {/* <ModalHOC
         title={"Đăng ký"}
         Com={ComponentContent}
-      />
+      /> */}
     </div>
   );
 }

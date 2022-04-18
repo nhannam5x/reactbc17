@@ -16,6 +16,7 @@ export const getApiTaskAction = async (dispatch) =>{
          } 
          
          dispatch(action);
+         console.log('Success');
      }catch(err){
          console.log(123);
      }
