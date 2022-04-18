@@ -6,7 +6,7 @@ import { getApiTaskAction } from '../../../redux/actions/toDoListAction';
 export default function ToDoListHook() {
 
     // const [arrTask,setArrTask] = useState([]);
-const {arrTask} = useSelector(state => state.toDoListReducer);
+const {arrTask} = useSelector(state => state.toDoListReducer); //state ở đây chính là rootreducer
 const dispatch = useDispatch();
     useEffect( async ()=>{
     //     try{
