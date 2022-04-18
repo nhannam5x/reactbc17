@@ -16,10 +16,10 @@ export default class Contact extends Component {
     return (
       <div className='container'>
         <h3>Contact</h3>
-        <button className='btn btn-success' onClick={this.handleGoHome}>Đăng nhập</button>
-        <Prompt 
+        {/* <button className='btn btn-success' onClick={this.handleGoHome}>Đăng nhập</button> */}
+        {/* <Prompt 
         when = {this.state.toGo}
-        message = {location => 'Bạn có muốn rời khỏi đây?'}/>
+        message = {() => 'Bạn có muốn rời khỏi đây?'}/> */}
       </div>
     )
   }

@@ -1,5 +1,9 @@
 import React, { Component, PureComponent } from 'react'
 
+
+import React, { Component } from 'react'
+
+
 //purecomponent giống component tuy nhiên khồng có lifecycle shouldComponentUpdate mà purecomponent sẽ tự nhận biết các giá trị props sau mỗi lần render có thay đổi hay không (nhận biết thwo shallow compare = chỉ nhận biết được primitive value (kiểu dữ liệu cơ sở: numberm string, boolean...))
 export default class ChildComponent extends PureComponent {
     constructor(props){
