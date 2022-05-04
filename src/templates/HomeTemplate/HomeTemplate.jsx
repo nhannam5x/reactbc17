@@ -4,6 +4,7 @@ import HeaderHome from '../../components/HeaderHome/HeaderHome'
 
 export default function HomeTemplate(props) {
   return (
+    //props.path = '/home'
     <Route exact path={props.path} render={(propsRoute)=>{
         return <div>
             <HeaderHome />

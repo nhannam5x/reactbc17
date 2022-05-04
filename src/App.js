@@ -37,61 +37,64 @@ import ToDoListHook from "./pages/Hooks/ToDoListHook/ToDoListHook";
 import DemoHOC from "./pages/HOC/DemoHOC/DemoHOC";
 import ModalHOC from "./pages/HOC/DemoHOC/ModalHOC";
 import HomeTemplate from "./templates/HomeTemplate/HomeTemplate";
+import UserTemplate from "./templates/UserTemplate/UserTemplate";
+import AdminTemplate from "./templates/AdminTemplate/AdminTemplate";
+import Index from "./pages/AdminPage/Index/Index"
+import User from "./pages/AdminPage/Users/User";
+import DemoAntD from "./pages/DemoAntD/DemoAntD";
+import DemoLayout from "./pages/DemoAntD/DemoLayout";
+
 
 function App() {
   return (
     <BrowserRouter>
-  <HeaderHome />
-  <ModalHOC />
-    <Switch>
-    <HomeTemplate path="/home" component={Home}/>
-    <HomeTemplate path="/about" component={About}/>
-      <Route exact path={"/contact"} render={(propsRoute)=>{
-        return <div>
-          <HeaderHome />
-          <Contact {...propsRoute}/>
-        </div>
-    
-    }} />
-      <Route exact path={"/login"} component={Login} />
-      <Route exact path={"/register"} component={Register} />
-      <Route exact path={'/profile'} render={(propsRoute)=>{
-        return <div>
-          <HeaderHome />
-          <Profile {...propsRoute}/>
-        </div>
-    
-    }}/>
-      <Route exact path={'/detail/:id'} render={(propsRoute)=>{
-        return <div>
-          <HeaderHome />
-          <Detail {...propsRoute}/>
-        </div>
-    
-    }}/>
-    
-    <Route exact path={"/todoapp"} component={ToDoApp} />
-    <Route exact path={"/usestate"} component={UseStateDemo} />
-    <Route exact path={"/useeffect"} component={UseEffectDemo} />
-    <Route exact path={"/usecallback"} component={UseCallBackDemo} />
-    <Route exact path={"/usememo"} component={UseMemoDemo} />
-    <Route exact path={"/useref"} component={UseRef} />
-    <Route exact path={"/reduxhook"} component={ReduxHook} />
-    <Route exact path={"/demohoc"} component={DemoHOC} />
-    <ToDoListHook/>
-
-      <Route exact path={"/"} render={(propsRoute)=>{/*propRoute là props của thẻ Route bao gồm: history,match,location */ 
-        return <div>
-          <HeaderHome />
-          <Home {...propsRoute}/>
-        </div>
-    
-    }}/>
-    </Switch>
+      <ModalHOC />
+      <Switch>
+        <HomeTemplate path="/home" component={Home} />
+        <HomeTemplate path="/about" component={About} />
+        <HomeTemplate exact path={"/contact"} component={Contact} />
+        <UserTemplate exact path={"/login"} component={Login} />
+        <UserTemplate exact path={"/register"} component={Register} />
+        <AdminTemplate path={'/admin/index'} component={Index} />
+        <AdminTemplate path={'/admin/user'} component={User} />
+        <AdminTemplate path={'/admin/demoantd'} component={DemoAntD} />
+        <Route
+          exact
+          path={"/profile"}
+          render={(propsRoute) => {
+            return (
+              <div>
+                <HeaderHome />
+                <Profile {...propsRoute} />
+              </div>
+            );
+          }}
+        />
+        <Route
+          exact
+          path={"/detail/:id"}
+          render={(propsRoute) => {
+            return (
+              <div>
+                <HeaderHome />
+                <Detail {...propsRoute} />
+              </div>
+            );
+          }}
+        />
+          <Route path={'/admin/demolayout'} component={DemoLayout}/>
+          
+        <Route exact path={"/todoapp"} component={ToDoApp} />
+        <Route exact path={"/usestate"} component={UseStateDemo} />
+        <Route exact path={"/useeffect"} component={UseEffectDemo} />
+        <Route exact path={"/usecallback"} component={UseCallBackDemo} />
+        <Route exact path={"/usememo"} component={UseMemoDemo} />
+        <Route exact path={"/useref"} component={UseRef} />
+        <Route exact path={"/reduxhook"} component={ReduxHook} />
+        <Route exact path={"/demohoc"} component={DemoHOC} />
+      </Switch>
     </BrowserRouter>
   );
 }
 
 export default App;
-
-
